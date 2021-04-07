@@ -1,0 +1,22 @@
+GRIP(Graduate Rotational Internship Program)- The Sparks Foundation
+# TASK-1 Prediction using supervised ML
+# PROBLEM STATEMENT: Predict the percentage of an student based on the 
+#                    no. of study hours.
+# THEORY: In this task simple linear regression is used that will predict
+#         the percentage of marks that a student is expected to score based
+#         upon the number of hours they studied. This is a simple
+#         linear regression task as it involves just two variables.
+
+
+student_data <-read.csv("https://raw.githubusercontent.com/AdiPersonalWorks/Random/master/student_scores%20-%20student_scores.csv")
+student_data
+x=student_data$Scores
+y=student_data$Hours
+plot(x~y)
+stu_linear_regression<-lm(Scores~Hours,data=student_data)
+print(stu_linear_regression)
+abline(stu_linear_regression, col="orange")
+print(summary(stu_linear_regression))
+stu_study_hours<-data.frame(Hours=9.25)
+predicted_score<-predict(stu_linear_regression,stu_study_hours)
+print(predicted_score)
